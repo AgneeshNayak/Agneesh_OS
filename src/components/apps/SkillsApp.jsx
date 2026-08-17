@@ -29,20 +29,20 @@ const skillCategories = [
     skills: ['Git / GitHub', 'Docker', 'VS Code', 'Linux / Bash', 'Postman', 'CI/CD Pipelines']
   },
   {
-    name: 'Cloud & AI',
+    name: 'Deployment & Tools',
     color: '#ff0080',
-    icon: '☁️',
-    skills: ['AWS', 'Vercel', 'OpenAI API', 'LangChain', 'Multi-Agent AI']
+    icon: '⚙️',
+    skills: ['Git & GitHub', 'Vercel', 'Postman', 'REST APIs', 'Docker']
   },
 ];
 
 const radarData = [
-  { subject: 'Frontend', A: 90 },
-  { subject: 'Backend', A: 85 },
-  { subject: 'Database', A: 80 },
-  { subject: 'DevOps', A: 75 },
-  { subject: 'AI/ML', A: 75 },
-  { subject: 'Mobile', A: 65 },
+  { subject: 'Frontend', A: 92 },
+  { subject: 'Backend', A: 88 },
+  { subject: 'Database', A: 85 },
+  { subject: 'DevOps', A: 78 },
+  { subject: 'System Design', A: 82 },
+  { subject: 'Web Architecture', A: 86 },
 ];
 
 const SkillTag = memo(function SkillTag({ name, color, delay }) {

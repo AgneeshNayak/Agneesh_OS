@@ -5,10 +5,10 @@ import { useSettings } from '../contexts/SettingsContext';
 import { useAchievements } from '../contexts/AchievementContext';
 
 const INTENTS = [
-  { keywords: ['hello', 'hi', 'hey', 'greetings'], response: 'Hello SDE recruiter. Mainframe connection established. How can I assist your scouting mission today?' },
-  { keywords: ['project', 'work', 'code', 'cargogo', 'arthatantra', 'tasks', 'portfolio'], response: 'Agneesh has shipped several flagships: CargoGo, ArthaTantra, and Decentralized Task Manager. Type "open projects" to view details.' },
-  { keywords: ['skills', 'tech', 'languages', 'frontend', 'backend', 'mongodb'], response: 'Core proficiencies include: React, Node.js, Express, MongoDB, Python, FastAPI, Docker, and Solidity. Type "open skills" to view the matrix.' },
-  { keywords: ['experience', 'hackathon', 'jobs', 'college'], response: 'Agneesh is pursuing a B.E. in CSE at Canara Engineering College, expected 2027. He won hackathons like VoidHack 2026. Type "open experience" for details.' },
+  { keywords: ['hello', 'hi', 'hey', 'greetings'], response: 'Hello recruiter. Mainframe connection established. How can I assist your scouting mission today?' },
+  { keywords: ['project', 'work', 'code', 'warehouse', 'laptop', 'placement', 'portfolio'], response: 'Agneesh has shipped several projects: Laptop Rental System, FEFO Smart Warehouse, CarGaragePro, PlacementPro, and Real-Time Disaster Alert. Type "open projects" to view details.' },
+  { keywords: ['skills', 'tech', 'languages', 'frontend', 'backend', 'mongodb'], response: 'Core proficiencies include: React.js, Node.js, Express.js, MongoDB, JavaScript, HTML5, CSS3, and REST APIs. Type "open skills" to view the matrix.' },
+  { keywords: ['experience', 'hackathon', 'jobs', 'college'], response: 'Agneesh is pursuing a B.E. in CSE at Canara Engineering College (6th Sem Topper, 9.44 CGPA). Type "open experience" for details.' },
   { keywords: ['resume', 'download', 'cv'], response: 'Initiating secure downlinks. Agneesh\'s professional resume packet is now downloading to your local client.', trigger: 'resume' },
   { keywords: ['help', 'commands', 'what can you do'], response: 'I can answer questions about Agneesh\'s skills, open apps (e.g., "open terminal", "open weather"), list projects, or download his resume.' }
 ];
@@ -127,8 +127,9 @@ export default function AICommandCenter() {
     if (matchedIntent) {
       if (matchedIntent.trigger === 'resume') {
         unlockAchievement('RECRUIT_ACQUIRED');
+        window.open('/Agneesh_Resume.pdf', '_blank');
         const link = document.createElement('a');
-        link.href = '#';
+        link.href = '/Agneesh_Resume.pdf';
         link.download = 'Agneesh_Resume.pdf';
         document.body.appendChild(link);
         link.click();

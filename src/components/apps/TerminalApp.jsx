@@ -46,8 +46,16 @@ const executeCommand = (cmd, args, history) => {
     case 'leetcode':
       window.open('https://leetcode.com/u/Agneesh_A_Nayak/', '_blank');
       return { output: ['Opening LeetCode profile: https://leetcode.com/u/Agneesh_A_Nayak/'], color: 'text-white' };
-    case 'resume':
-      return { output: ['Triggering secure downlink...', 'Downloading Agneesh_Resume.pdf'], color: 'text-white' };
+    case 'resume': {
+      window.open('/Agneesh_Resume.pdf', '_blank');
+      const link = document.createElement('a');
+      link.href = '/Agneesh_Resume.pdf';
+      link.download = 'Agneesh_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      return { output: ['Triggering secure downlink...', 'Opening and downloading Agneesh_Resume.pdf'], color: 'text-white' };
+    }
     case 'whoami':
       return { output: ['guest'], color: 'text-green-400' };
     case 'neofetch':

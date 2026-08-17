@@ -27,11 +27,11 @@ const experiences = [
     color: '#00ff41',
   },
   {
-    role: 'Hackathon Participant',
-    type: 'VoidHack 2026 & Others',
+    role: 'Hackathon Participant & Innovator',
+    type: 'VoidHack 2026 & Hackathons',
     period: '2025 - 2026',
-    description: 'Competed in multiple hackathons, building innovative solutions under time constraints. Created ArthaTantra at VoidHack 2026.',
-    highlights: ['Multi-agent AI systems', 'Rapid prototyping', 'Team collaboration'],
+    description: 'Competed in hackathons, building innovative web platforms under tight time constraints. Developed Real-Time Disaster Alert System.',
+    highlights: ['Real-time WebSockets', 'Rapid web prototyping', 'Team collaboration'],
     color: '#b400ff',
   },
   {

@@ -42,8 +42,9 @@ const Taskbar = memo(function Taskbar() {
   const handleDownloadResume = () => {
     setIsStartOpen(false);
     unlockAchievement('RECRUIT_ACQUIRED');
+    window.open('/Agneesh_Resume.pdf', '_blank');
     const link = document.createElement('a');
-    link.href = '#';
+    link.href = '/Agneesh_Resume.pdf';
     link.download = 'Agneesh_Resume.pdf';
     document.body.appendChild(link);
     link.click();

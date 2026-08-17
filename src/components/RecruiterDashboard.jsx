@@ -33,8 +33,9 @@ export default function RecruiterDashboard() {
 
   const handleDownloadResume = () => {
     unlockAchievement('RECRUIT_ACQUIRED');
+    window.open('/Agneesh_Resume.pdf', '_blank');
     const link = document.createElement('a');
-    link.href = '#'; // In production: '/resume.pdf'
+    link.href = '/Agneesh_Resume.pdf';
     link.download = 'Agneesh_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -168,26 +169,26 @@ export default function RecruiterDashboard() {
                     <h3 className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase mb-3">// Flagship Projects</h3>
                     <div className="space-y-4">
                       <div>
-                        <h4 className="text-base font-bold text-gray-900">CargoGo — On-Demand Logistics Platform</h4>
-                        <p className="text-xs font-mono text-gray-500 mb-1">React, Node.js, Express, Socket.io, MongoDB</p>
+                        <h4 className="text-base font-bold text-gray-900">Laptop Rental Management System</h4>
+                        <p className="text-xs font-mono text-gray-500 mb-1">React.js, Node.js, Express.js, MongoDB, Tailwind CSS</p>
                         <p className="text-xs text-gray-700 leading-relaxed">
-                          Developed an on-demand freight matching dashboard featuring real-time location tracking, route optimizations, and automated shipper pricing matrices, boosting logistics efficiency.
+                          Built full-stack rental platform for tracking laptop inventory allocations, rental durations, customer reservations, and automated billing invoices.
                         </p>
                       </div>
 
                       <div>
-                        <h4 className="text-base font-bold text-gray-900">ArthaTantra — Multi-Agent Financial Twin</h4>
-                        <p className="text-xs font-mono text-gray-500 mb-1">Python, FastAPI, LangChain, React, OpenAI API</p>
+                        <h4 className="text-base font-bold text-gray-900">FEFO Smart Warehouse Management System</h4>
+                        <p className="text-xs font-mono text-gray-500 mb-1">Node.js, Express.js, MongoDB, HTML5, CSS3, JavaScript</p>
                         <p className="text-xs text-gray-700 leading-relaxed">
-                          Awarded first place at VoidHack 2026. Built interactive financial twin simulators using autonomous AI agent chains simulating personal cash-flow projections and investment risk tolerances.
+                          Engineered First-Expired-First-Out (FEFO) inventory management system for automated stock rotation, perishable batch tracking, and warehouse analytics.
                         </p>
                       </div>
 
                       <div>
-                        <h4 className="text-base font-bold text-gray-900">Decentralized Task Manager</h4>
-                        <p className="text-xs font-mono text-gray-500 mb-1">Solidity, Ethereum, Web3.js, React, IPFS</p>
+                        <h4 className="text-base font-bold text-gray-900">PlacementPro — Campus Recruitment Portal</h4>
+                        <p className="text-xs font-mono text-gray-500 mb-1">React.js, Node.js, Express.js, MongoDB, Tailwind CSS</p>
                         <p className="text-xs text-gray-700 leading-relaxed">
-                          Engineered blockchain tasks collaboration suite using custom gas-optimized Solidity smart contracts for task assignments, approvals, and token-based rewards verification.
+                          Engineered campus placement portal connecting students, coordinators, and corporate recruiters with analytics dashboards and company preparation tracks.
                         </p>
                       </div>
                     </div>

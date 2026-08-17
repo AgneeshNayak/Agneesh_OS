@@ -21,12 +21,11 @@ const commands = [
   { id: 'app-recycle', title: 'Open Recycle Bin', category: 'Applications', icon: '🗑️', action: 'app', appId: 'recycle', appTitle: 'Recycle Bin', color: '#888888' },
 
   // PROJECTS (Shortcut to open projects app)
-  { id: 'proj-cargogo', title: 'Show CargoGo Logistics Platform', category: 'Projects', icon: '🚚', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#00ff41' },
-  { id: 'proj-arthatantra', title: 'Show ArthaTantra AI Financial Twin', category: 'Projects', icon: '📈', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#b400ff' },
-  { id: 'proj-tasks', title: 'Show Decentralized Task Manager', category: 'Projects', icon: '⛓️', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#00d4ff' },
-  { id: 'proj-placement', title: 'Show Placement Pro Platform', category: 'Projects', icon: '🎓', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#ff0080' },
-  { id: 'proj-disaster', title: 'Show Real-Time Disaster Alerts', category: 'Projects', icon: '🚨', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#ff6b00' },
-  { id: 'proj-warehouse', title: 'Show Smart Warehouse Management', category: 'Projects', icon: '📦', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#ffd700' },
+  { id: 'proj-laptop', title: 'Show Laptop Rental Management System', category: 'Projects', icon: '💻', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#00ff41' },
+  { id: 'proj-warehouse', title: 'Show FEFO Smart Warehouse Management', category: 'Projects', icon: '📦', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#ffd700' },
+  { id: 'proj-cargarage', title: 'Show CarGaragePro System', category: 'Projects', icon: '🚗', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#00d4ff' },
+  { id: 'proj-placement', title: 'Show PlacementPro Portal', category: 'Projects', icon: '🎓', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#ff0080' },
+  { id: 'proj-disaster', title: 'Show Real-Time Disaster Alert System', category: 'Projects', icon: '🚨', action: 'app', appId: 'projects', appTitle: 'Projects', color: '#ff6b00' },
 
   // SYSTEM ACTIONS
   { id: 'action-perf', title: 'Toggle Performance Mode', category: 'System Settings', icon: '⚡', action: 'performance' },
@@ -128,9 +127,9 @@ export default function CommandPalette() {
         break;
       case 'resume':
         unlockAchievement('RECRUIT_ACQUIRED');
-        // Generate mock download anchor link
+        window.open('/Agneesh_Resume.pdf', '_blank');
         const link = document.createElement('a');
-        link.href = '#'; // In a real portfolio, link.href = '/resume.pdf';
+        link.href = '/Agneesh_Resume.pdf';
         link.download = 'Agneesh_Resume.pdf';
         document.body.appendChild(link);
         link.click();

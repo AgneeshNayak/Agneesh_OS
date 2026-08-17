@@ -31,7 +31,7 @@ const timelineEvents = [
   { year: '2023', title: 'Started B.E. in CSE', desc: 'Canara Engineering College, Mangalore', icon: '🎓' },
   { year: '2024', title: 'First Full Stack Project', desc: 'Built end-to-end web applications', icon: '🚀' },
   { year: '2025–26', title: '6th Sem Academic Topper (9.44 CGPA)', desc: 'Dept of CSE, Canara Engineering College', icon: '🏆' },
-  { year: '2026', title: 'Advanced AI Projects', desc: 'ArthaTantra: Multi-agent AI Financial Twin', icon: '🤖' },
+  { year: '2026', title: 'Full Stack & Web Systems', desc: 'Shipping production web systems & hackathon projects', icon: '💻' },
   { year: '2027', title: 'Expected Graduation', desc: 'B.E. Computer Science & Engineering', icon: '🎯' },
 ];
 
@@ -40,32 +40,48 @@ const AboutApp = memo(function AboutApp() {
     <div className="p-4 sm:p-6 h-full overflow-y-auto space-y-6 sm:space-y-8">
       {/* Header */}
       <motion.div
-        className="text-center py-4 sm:py-6"
+        className="flex flex-col items-center justify-center text-center py-4 sm:py-6 w-full"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
         <motion.div
-          className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl sm:text-4xl shrink-0"
+          className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 mx-auto mb-5 rounded-full overflow-hidden shrink-0 relative border-2 border-neon-green/60 p-1"
           style={{
-            background: 'linear-gradient(135deg, rgba(0,255,65,0.1), rgba(0,212,255,0.1))',
-            border: '2px solid rgba(0,255,65,0.3)',
-            boxShadow: '0 0 30px rgba(0,255,65,0.1)',
+            background: 'linear-gradient(135deg, rgba(0,255,65,0.25), rgba(0,212,255,0.25))',
+            boxShadow: '0 0 35px rgba(0,255,65,0.3), 0 0 70px rgba(0,255,65,0.15)',
           }}
-          animate={{ boxShadow: ['0 0 20px rgba(0,255,65,0.1)', '0 0 40px rgba(0,255,65,0.2)', '0 0 20px rgba(0,255,65,0.1)'] }}
-          transition={{ duration: 3, repeat: Infinity }}
+          animate={{
+            boxShadow: [
+              '0 0 25px rgba(0,255,65,0.25), 0 0 50px rgba(0,255,65,0.15)',
+              '0 0 50px rgba(0,255,65,0.5), 0 0 90px rgba(0,255,65,0.3)',
+              '0 0 25px rgba(0,255,65,0.25), 0 0 50px rgba(0,255,65,0.15)'
+            ]
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
         >
-          👤
+          <img
+            src="/profile.jpg"
+            alt="Agneesh Nayak Professional Headshot"
+            className="w-full h-full object-cover object-top rounded-full"
+          />
         </motion.div>
-        <h1 className="font-display text-2xl sm:text-3xl text-neon-green text-glow-green tracking-wider mb-2">AGNEESH</h1>
+
+        <h1 className="font-display text-2xl sm:text-3xl md:text-4xl text-neon-green text-glow-green tracking-wider mb-2.5">
+          AGNEESH NAYAK
+        </h1>
         
         {/* Topper Badge */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-2 rounded-full text-xs font-mono font-bold bg-amber-500/10 border border-amber-500/30 text-amber-400">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 mb-3 rounded-full text-xs sm:text-sm font-mono font-bold bg-amber-500/10 border border-amber-500/30 text-amber-400 shadow-sm">
           <span>🏆</span>
           <span>6th Sem CSE Academic Topper • 9.44 CGPA</span>
         </div>
 
-        <p className="font-mono text-xs sm:text-sm text-neon-blue">Computer Science Student • Full Stack Developer</p>
-        <p className="font-mono text-[11px] sm:text-xs text-gray-500 mt-1">Canara Engineering College, Mangalore | CSE '27</p>
+        <p className="font-mono text-xs sm:text-sm md:text-base text-neon-blue">
+          Computer Science Student • Full Stack Web Developer
+        </p>
+        <p className="font-mono text-[11px] sm:text-xs text-gray-400 mt-1">
+          Canara Engineering College, Mangalore | CSE '27
+        </p>
       </motion.div>
 
       {/* Stats */}
@@ -89,13 +105,13 @@ const AboutApp = memo(function AboutApp() {
       >
         <h2 className="font-display text-sm text-neon-blue tracking-wider mb-3">// ABOUT ME</h2>
         <p className="text-gray-300 text-sm leading-relaxed font-body">
-          I'm a passionate Computer Science student at Canara Engineering College, Mangalore,
-          with a deep interest in full-stack development, AI/ML, and building impactful software solutions.
-          I love turning complex problems into elegant, user-friendly applications.
+          I'm a dedicated Computer Science student at Canara Engineering College, Mangalore,
+          with a strong focus on full-stack web development, modern software engineering, and database systems.
+          I specialize in building robust, user-centric web applications and scalable backend architectures.
         </p>
         <p className="text-gray-300 text-sm leading-relaxed font-body mt-3">
-          Currently focused on developing scalable web applications, exploring multi-agent AI systems,
-          and contributing to innovative projects that push the boundaries of technology.
+          Currently focused on developing production-ready web platforms, optimizing system performance,
+          and shipping full-stack projects using React.js, Node.js, Express, and MongoDB.
         </p>
       </motion.div>
 
