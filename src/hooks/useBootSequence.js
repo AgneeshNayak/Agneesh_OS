@@ -7,16 +7,16 @@ const BOOT_STAGES = [
     progress: [0, 15],
     lines: [
       { text: '', delay: 0 },
-      { text: '╔══════════════════════════════════════════════════════════╗', delay: 100 },
-      { text: '║             AgneeshOS v2.0.27 — Neural Build             ║', delay: 200 },
-      { text: '║       Copyright © 2027 Agneesh Industries Pvt. Ltd       ║', delay: 300 },
-      { text: '╚══════════════════════════════════════════════════════════╝', delay: 400 },
-      { text: '', delay: 500 },
-      { text: '> Checking system memory.............. 32768 MB  [OK]', delay: 700 },
-      { text: '> Detecting neural processors......... 8 cores   [ACTIVE]', delay: 1000 },
-      { text: '> Initializing quantum bridge......... LINKED    [CONNECTED]', delay: 1300 },
-      { text: '> Boot device: NEURAL_SSD_01', delay: 1500 },
-      { text: '', delay: 1600 },
+      { text: '╔══════════════════════════════════════════════════════════╗', delay: 20 },
+      { text: '║             AgneeshOS v2.0.27 — Neural Build             ║', delay: 40 },
+      { text: '║       Copyright © 2027 Agneesh Industries Pvt. Ltd       ║', delay: 60 },
+      { text: '╚══════════════════════════════════════════════════════════╝', delay: 80 },
+      { text: '', delay: 100 },
+      { text: '> Checking system memory.............. 32768 MB  [OK]', delay: 140 },
+      { text: '> Detecting neural processors......... 8 cores   [ACTIVE]', delay: 200 },
+      { text: '> Initializing quantum bridge......... LINKED    [CONNECTED]', delay: 260 },
+      { text: '> Boot device: NEURAL_SSD_01', delay: 300 },
+      { text: '', delay: 320 },
     ]
   },
   {
@@ -25,13 +25,13 @@ const BOOT_STAGES = [
     progress: [15, 45],
     lines: [
       { text: '── Loading AI Core ──────────────────────────────────────', delay: 0 },
-      { text: '', delay: 100 },
-      { text: '  ▸ Neural engine v4.2.1 ........................ initialized', delay: 300 },
-      { text: '  ▸ Pattern recognition module .................. loaded', delay: 600 },
-      { text: '  ▸ Sentiment analysis core ..................... online', delay: 900 },
-      { text: '  ▸ Natural language processor .................. calibrated', delay: 1200 },
-      { text: '  ▸ Deep learning framework ..................... ready', delay: 1400 },
-      { text: '', delay: 1500 },
+      { text: '', delay: 20 },
+      { text: '  ▸ Neural engine v4.2.1 ........................ initialized', delay: 60 },
+      { text: '  ▸ Pattern recognition module .........module loaded', delay: 120 },
+      { text: '  ▸ Sentiment analysis core ..................... online', delay: 180 },
+      { text: '  ▸ Natural language processor .................. calibrated', delay: 240 },
+      { text: '  ▸ Deep learning framework ..................... ready', delay: 300 },
+      { text: '', delay: 320 },
     ]
   },
   {
@@ -40,13 +40,13 @@ const BOOT_STAGES = [
     progress: [45, 75],
     lines: [
       { text: '── Initializing System Services ─────────────────────────', delay: 0 },
-      { text: '', delay: 100 },
-      { text: '  ▸ Loading project database ............. 6 entries found', delay: 300 },
-      { text: '  ▸ Skill matrix ......................... calibrated', delay: 600 },
-      { text: '  ▸ Experience timeline .................. synced', delay: 900 },
-      { text: '  ▸ Certificate vault .................... verified', delay: 1100 },
-      { text: '  ▸ Contact relay ........................ armed', delay: 1300 },
-      { text: '', delay: 1400 },
+      { text: '', delay: 20 },
+      { text: '  ▸ Loading project database ............. 6 entries found', delay: 60 },
+      { text: '  ▸ Skill matrix ......................... calibrated', delay: 120 },
+      { text: '  ▸ Experience timeline .................. synced', delay: 180 },
+      { text: '  ▸ Certificate vault .................... verified', delay: 240 },
+      { text: '  ▸ Contact relay ........................ armed', delay: 280 },
+      { text: '', delay: 300 },
     ]
   },
   {
@@ -55,12 +55,12 @@ const BOOT_STAGES = [
     progress: [75, 95],
     lines: [
       { text: '── Establishing Satellite Uplink ────────────────────────', delay: 0 },
-      { text: '', delay: 100 },
-      { text: '  ▸ Uplink established ................... 42.8 Gbps', delay: 400 },
-      { text: '  ▸ Portfolio sync ....................... COMPLETE', delay: 700 },
-      { text: '  ▸ GitHub integration ................... LINKED', delay: 1000 },
-      { text: '  ▸ LinkedIn relay ....................... ACTIVE', delay: 1200 },
-      { text: '', delay: 1300 },
+      { text: '', delay: 20 },
+      { text: '  ▸ Uplink established ................... 42.8 Gbps', delay: 80 },
+      { text: '  ▸ Portfolio sync ....................... COMPLETE', delay: 140 },
+      { text: '  ▸ GitHub integration ................... LINKED', delay: 200 },
+      { text: '  ▸ LinkedIn relay ....................... ACTIVE', delay: 240 },
+      { text: '', delay: 260 },
     ]
   },
   {
@@ -69,12 +69,12 @@ const BOOT_STAGES = [
     progress: [95, 100],
     lines: [
       { text: '══════════════════════════════════════════════════════════', delay: 0 },
-      { text: '', delay: 100 },
-      { text: '  ✦  ALL SUBSYSTEMS NOMINAL', delay: 300 },
-      { text: '  ✦  AGNEESH-OS IS ONLINE', delay: 500 },
-      { text: '', delay: 600 },
-      { text: '  Welcome, Operator.', delay: 800 },
-      { text: '', delay: 1000 },
+      { text: '', delay: 20 },
+      { text: '  ✦  ALL SUBSYSTEMS NOMINAL', delay: 60 },
+      { text: '  ✦  AGNEESH-OS IS ONLINE', delay: 100 },
+      { text: '', delay: 120 },
+      { text: '  Welcome, Operator.', delay: 160 },
+      { text: '', delay: 200 },
     ]
   }
 ];
@@ -125,7 +125,7 @@ export function useBootSequence() {
         const t = setTimeout(() => {
           markBooted();
           setIsComplete(true);
-        }, 800);
+        }, 150);
         timeoutsRef.current.push(t);
         return;
       }
@@ -158,7 +158,7 @@ export function useBootSequence() {
         timeoutsRef.current.push(t);
       });
 
-      overallDelay += stageLineDuration + 200;
+      overallDelay += stageLineDuration + 30;
 
       // Schedule next stage
       const tNext = setTimeout(() => runStage(index + 1), overallDelay);

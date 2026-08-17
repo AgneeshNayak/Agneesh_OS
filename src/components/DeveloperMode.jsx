@@ -9,16 +9,13 @@ export default function DeveloperMode() {
     { url: '/api/health', status: 200, duration: 15, timestamp: new Date() }
   ]);
   const [chunkLoads, setChunkLoads] = useState([]);
-  const [renderCount, setRenderCount] = useState(0);
+  const renderCountRef = useRef(0);
 
   const location = useLocation();
   const { getAccentColor, settings } = useSettings();
   const accentColor = getAccentColor();
   
-  // Track component render tick
-  useEffect(() => {
-    setRenderCount(prev => prev + 1);
-  });
+  renderCountRef.current += 1;
 
   // Track keyboard shortcut Ctrl+Shift+D
   useEffect(() => {
@@ -125,7 +122,7 @@ export default function DeveloperMode() {
 
   return (
     <div 
-      className="fixed top-4 left-4 w-72 glass-strong rounded-xl border z-[10005] overflow-hidden text-[10px] font-mono text-gray-300"
+      className="fixed top-3 left-3 sm:top-4 sm:left-4 w-[calc(100vw-24px)] max-w-xs sm:w-72 glass-strong rounded-xl border z-[10005] overflow-hidden text-[10px] font-mono text-gray-300"
       style={{
         borderColor: `${accentColor}40`,
         boxShadow: `0 0 20px ${accentColor}10, 0 10px 30px rgba(0,0,0,0.6)`
@@ -164,7 +161,7 @@ export default function DeveloperMode() {
           </div>
           <div className="p-2 bg-black/25 rounded border border-dark-border">
             <div className="text-gray-500 mb-0.5">RENDER COUNT</div>
-            <div className="text-sm font-bold text-neon-blue">{renderCount} ticks</div>
+            <div className="text-sm font-bold text-neon-blue">{renderCountRef.current} ticks</div>
           </div>
         </div>
 

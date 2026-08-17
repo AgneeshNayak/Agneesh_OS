@@ -30,22 +30,22 @@ const AnimatedCounter = ({ target, label, suffix = '' }) => {
 const timelineEvents = [
   { year: '2023', title: 'Started B.E. in CSE', desc: 'Canara Engineering College, Mangalore', icon: '🎓' },
   { year: '2024', title: 'First Full Stack Project', desc: 'Built end-to-end web applications', icon: '🚀' },
-  { year: '2025', title: 'Hackathon Victories', desc: 'Participated in VoidHack 2026 and more', icon: '🏆' },
+  { year: '2025–26', title: '6th Sem Academic Topper (9.44 CGPA)', desc: 'Dept of CSE, Canara Engineering College', icon: '🏆' },
   { year: '2026', title: 'Advanced AI Projects', desc: 'ArthaTantra: Multi-agent AI Financial Twin', icon: '🤖' },
   { year: '2027', title: 'Expected Graduation', desc: 'B.E. Computer Science & Engineering', icon: '🎯' },
 ];
 
 const AboutApp = memo(function AboutApp() {
   return (
-    <div className="p-6 h-full overflow-y-auto space-y-8">
+    <div className="p-4 sm:p-6 h-full overflow-y-auto space-y-6 sm:space-y-8">
       {/* Header */}
       <motion.div
-        className="text-center py-6"
+        className="text-center py-4 sm:py-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
         <motion.div
-          className="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center text-4xl"
+          className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl sm:text-4xl shrink-0"
           style={{
             background: 'linear-gradient(135deg, rgba(0,255,65,0.1), rgba(0,212,255,0.1))',
             border: '2px solid rgba(0,255,65,0.3)',
@@ -56,14 +56,21 @@ const AboutApp = memo(function AboutApp() {
         >
           👤
         </motion.div>
-        <h1 className="font-display text-3xl text-neon-green text-glow-green tracking-wider mb-2">AGNEESH</h1>
-        <p className="font-mono text-sm text-neon-blue">Computer Science Student • Full Stack Developer</p>
-        <p className="font-mono text-xs text-gray-500 mt-1">Canara Engineering College, Mangalore | CSE '27</p>
+        <h1 className="font-display text-2xl sm:text-3xl text-neon-green text-glow-green tracking-wider mb-2">AGNEESH</h1>
+        
+        {/* Topper Badge */}
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-2 rounded-full text-xs font-mono font-bold bg-amber-500/10 border border-amber-500/30 text-amber-400">
+          <span>🏆</span>
+          <span>6th Sem CSE Academic Topper • 9.44 CGPA</span>
+        </div>
+
+        <p className="font-mono text-xs sm:text-sm text-neon-blue">Computer Science Student • Full Stack Developer</p>
+        <p className="font-mono text-[11px] sm:text-xs text-gray-500 mt-1">Canara Engineering College, Mangalore | CSE '27</p>
       </motion.div>
 
       {/* Stats */}
       <motion.div
-        className="grid grid-cols-3 gap-3"
+        className="grid grid-cols-1 sm:grid-cols-3 gap-3"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}

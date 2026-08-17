@@ -165,7 +165,7 @@ export default function CommandPalette() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-start justify-center pt-[15vh] px-4">
+        <div className="fixed inset-0 z-[9900] flex items-start justify-center pt-4 sm:pt-[12vh] px-3 sm:px-4 pb-4">
           
           {/* Backdrop Blur overlay */}
           <motion.div
@@ -178,7 +178,7 @@ export default function CommandPalette() {
 
           {/* Centered VS Code-style modal box */}
           <motion.div
-            className="w-full max-w-xl glass-strong rounded-xl overflow-hidden relative border"
+            className="w-full max-w-xl glass-strong rounded-xl overflow-hidden relative border flex flex-col max-h-[85vh]"
             style={{
               borderColor: `${accentColor}30`,
               boxShadow: `0 0 30px ${accentColor}15, 0 10px 40px rgba(0,0,0,0.6)`

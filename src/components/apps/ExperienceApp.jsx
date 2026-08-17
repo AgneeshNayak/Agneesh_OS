@@ -3,6 +3,22 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
+    role: '6th Semester Academic Topper',
+    type: 'Canara Engineering College (Dept of CSE)',
+    period: '2025 - 2026',
+    description: 'Awarded 6th Semester Academic Topper (9.44 CGPA, USN: 4CB23CS009) by the Department of Computer Science & Engineering for outstanding academic performance.',
+    highlights: ['9.44 CGPA', '6th Sem Topper', 'Canara Engineering College'],
+    color: '#ffd700',
+  },
+  {
+    role: '3rd Semester Academic Topper',
+    type: 'Canara Engineering College (Dept of CSE)',
+    period: '2024 - 2025',
+    description: 'Recognized as 3rd Semester Topper (>9.0 SGPA) by Canara Engineering College, Department of Computer Science & Engineering.',
+    highlights: ['9.0 SGPA', '3rd Sem Topper', 'Certificate of Achievement'],
+    color: '#00d4ff',
+  },
+  {
     role: 'Full Stack Developer',
     type: 'Project-Based',
     period: '2024 - Present',
@@ -30,8 +46,8 @@ const experiences = [
 
 const ExperienceApp = memo(function ExperienceApp() {
   return (
-    <div className="p-6 h-full overflow-y-auto">
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
+    <div className="p-4 sm:p-6 h-full overflow-y-auto">
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-4 sm:mb-6">
         <h2 className="font-display text-xl text-neon-green tracking-wider mb-1">// EXPERIENCE</h2>
         <p className="text-xs font-mono text-gray-500">Professional journey & contributions</p>
       </motion.div>
@@ -40,7 +56,7 @@ const ExperienceApp = memo(function ExperienceApp() {
         {experiences.map((exp, i) => (
           <motion.div
             key={exp.role}
-            className="rounded-xl p-5"
+            className="rounded-xl p-4 sm:p-5"
             style={{
               background: `${exp.color}05`,
               border: `1px solid ${exp.color}15`,
@@ -49,12 +65,12 @@ const ExperienceApp = memo(function ExperienceApp() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.15 }}
           >
-            <div className="flex items-start justify-between mb-2">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1 mb-2">
               <div>
                 <h3 className="font-display text-base tracking-wider" style={{ color: exp.color }}>{exp.role}</h3>
                 <p className="text-xs font-mono text-gray-500">{exp.type}</p>
               </div>
-              <span className="text-xs font-mono px-2 py-1 rounded" style={{ color: exp.color, background: `${exp.color}10` }}>
+              <span className="text-xs font-mono px-2 py-1 rounded self-start sm:self-auto" style={{ color: exp.color, background: `${exp.color}10` }}>
                 {exp.period}
               </span>
             </div>

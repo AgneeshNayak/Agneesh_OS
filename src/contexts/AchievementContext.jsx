@@ -13,11 +13,13 @@ const ACHIEVEMENT_LIST = [
   { id: 'DASHBOARD_ACTIVATE', title: 'Recruiter Scout', desc: 'Accessed the Ctrl+H recruiter dashboard.', icon: '💼' }
 ];
 
+import { useSound } from '../hooks/useSound';
+
 export function AchievementProvider({ children }) {
   const [unlockedIds, setUnlockedIds] = useState([]);
   const [toasts, setToasts] = useState([]);
   const { settings } = useSettings();
-  const audioCtxRef = useRef(null);
+  const { playSound } = useSound();
 
   // Load unlocked achievements from localStorage on mount
   useEffect(() => {
@@ -35,55 +37,6 @@ export function AchievementProvider({ children }) {
     }
   }, []);
 
-  // Play procedural chiptune sound on unlock
-  const playUnlockSound = () => {
-    if (!settings.soundEnabled || settings.performanceMode) return;
-
-    try {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (!audioCtxRef.current) {
-        audioCtxRef.current = new AudioContext();
-      }
-      const ctx = audioCtxRef.current;
-      if (ctx.state === 'suspended') {
-        ctx.resume();
-      }
-
-      const now = ctx.currentTime;
-      // High-pitched retro arpeggio sound (beep-BOOP)
-      const osc1 = ctx.createOscillator();
-      const osc2 = ctx.createOscillator();
-      const gain = ctx.createGain();
-
-      osc1.type = 'square';
-      osc2.type = 'triangle';
-
-      gain.connect(ctx.destination);
-      gain.gain.setValueAtTime(0, now);
-      gain.gain.linearRampToValueAtTime(0.15, now + 0.02);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
-
-      osc1.connect(gain);
-      osc2.connect(gain);
-
-      // Beep tone
-      osc1.frequency.setValueAtTime(523.25, now); // C5
-      osc1.frequency.setValueAtTime(659.25, now + 0.08); // E5
-      osc1.frequency.setValueAtTime(783.99, now + 0.16); // G5
-      osc1.frequency.setValueAtTime(1046.50, now + 0.24); // C6
-
-      osc2.frequency.setValueAtTime(261.63, now); // C4
-      osc2.frequency.setValueAtTime(329.63, now + 0.16); // E4
-
-      osc1.start(now);
-      osc1.stop(now + 0.35);
-      osc2.start(now);
-      osc2.stop(now + 0.35);
-    } catch (e) {
-      console.warn('Audio unlock sound failed:', e);
-    }
-  };
-
   const triggerUnlock = (id, currentList) => {
     const list = currentList || unlockedIds;
     if (list.includes(id)) return;
@@ -91,8 +44,8 @@ export function AchievementProvider({ children }) {
     const ach = ACHIEVEMENT_LIST.find(a => a.id === id);
     if (!ach) return;
 
-    // Play retro beep
-    playUnlockSound();
+    // Play retro beep using useSound hook
+    playSound('achievement');
 
     // Show toast popup
     const toastId = `${id}-${Date.now()}`;

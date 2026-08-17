@@ -10,6 +10,7 @@ const DEFAULT_SETTINGS = {
   soundEnabled: false,
   cursorEffects: true,
   animationsEnabled: true,
+  wallpaper: 'satellite', // 'satellite', 'matrix', 'gradient'
 };
 
 function loadSettings() {

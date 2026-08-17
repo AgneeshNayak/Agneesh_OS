@@ -69,26 +69,26 @@ export default function RecruiterDashboard() {
             }
           `}</style>
 
-          <div className="max-w-4xl mx-auto p-8 md:p-12 relative min-h-screen flex flex-col justify-between">
+          <div className="max-w-4xl mx-auto p-4 sm:p-8 md:p-12 relative min-h-screen flex flex-col justify-between">
             {/* Header controls (no-print) */}
-            <div className="flex justify-between items-center pb-6 border-b border-gray-200 no-print mb-8">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pb-6 border-b border-gray-200 no-print mb-8">
               <span className="font-mono text-xs text-gray-500 uppercase tracking-widest">// Recruiter Dashboard (Print-Friendly One-Pager)</span>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3 w-full sm:w-auto">
                 <button
                   onClick={handlePrint}
-                  className="px-4 py-2 border border-gray-300 hover:border-gray-900 rounded font-mono text-xs transition-colors cursor-pointer"
+                  className="px-3 py-1.5 sm:px-4 sm:py-2 border border-gray-300 hover:border-gray-900 rounded font-mono text-xs transition-colors cursor-pointer flex-1 sm:flex-none text-center"
                 >
                   Print Profile
                 </button>
                 <button
                   onClick={handleDownloadResume}
-                  className="px-4 py-2 bg-black text-white hover:bg-gray-800 rounded font-mono text-xs transition-colors cursor-pointer"
+                  className="px-3 py-1.5 sm:px-4 sm:py-2 bg-black text-white hover:bg-gray-800 rounded font-mono text-xs transition-colors cursor-pointer flex-1 sm:flex-none text-center"
                 >
                   Download PDF
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="px-4 py-2 text-gray-500 hover:text-black font-mono text-xs cursor-pointer"
+                  className="px-3 py-1.5 sm:px-4 sm:py-2 text-gray-500 hover:text-black font-mono text-xs cursor-pointer"
                 >
                   Exit [ESC]
                 </button>

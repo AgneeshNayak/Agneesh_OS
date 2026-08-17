@@ -9,6 +9,8 @@ import BootScreen from './pages/BootScreen';
 import LoginScreen from './pages/LoginScreen';
 import Desktop from './pages/Desktop';
 
+import { PageTransition } from './components/MotionPrimitives';
+
 export default function App() {
   useEffect(() => {
     // Instantiate Lenis for smooth scroll physics
@@ -41,9 +43,9 @@ export default function App() {
       <AchievementProvider>
         <CustomCursor />
         <Routes>
-          <Route path="/" element={<BootScreen />} />
-          <Route path="/login" element={<LoginScreen />} />
-          <Route path="/desktop" element={<Desktop />} />
+          <Route path="/" element={<PageTransition><BootScreen /></PageTransition>} />
+          <Route path="/login" element={<PageTransition><LoginScreen /></PageTransition>} />
+          <Route path="/desktop" element={<PageTransition><Desktop /></PageTransition>} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AchievementProvider>

@@ -10,9 +10,11 @@ export default function CustomCursor() {
   const [hidden, setHidden] = useState(true);
   const trailRef = useRef(null);
 
+  const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
   useEffect(() => {
-    // If cursor effects are disabled, do not mount cursor logic
-    if (!settings.cursorEffects || settings.performanceMode) {
+    // If cursor effects are disabled or is touch device, do not mount cursor logic
+    if (!settings.cursorEffects || settings.performanceMode || isTouchDevice) {
       document.body.style.cursor = 'auto';
       return;
     }
@@ -108,7 +110,7 @@ export default function CustomCursor() {
     return () => cancelAnimationFrame(frameId);
   }, [position, settings.cursorEffects, settings.performanceMode]);
 
-  if (!settings.cursorEffects || settings.performanceMode || hidden) {
+  if (!settings.cursorEffects || settings.performanceMode || isTouchDevice || hidden) {
     return null;
   }
 

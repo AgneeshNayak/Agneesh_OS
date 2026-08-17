@@ -324,9 +324,9 @@ const MusicApp = memo(function MusicApp() {
   const track = tracks[currentTrack];
 
   return (
-    <div className="h-full flex flex-col" style={{ background: 'rgba(5,5,15,0.95)' }}>
+    <div className="h-full flex flex-col overflow-y-auto" style={{ background: 'rgba(5,5,15,0.95)' }}>
       {/* Now Playing */}
-      <div className="p-6 text-center border-b border-neon-purple/10">
+      <div className="p-4 sm:p-6 text-center border-b border-neon-purple/10">
         
         {/* Real-time Web Audio Synthesizer Canvas Visualizer */}
         <div className="relative h-20 mb-4 rounded-lg bg-black/30 overflow-hidden flex items-center justify-center">

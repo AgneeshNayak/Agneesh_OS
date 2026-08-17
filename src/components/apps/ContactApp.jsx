@@ -1,6 +1,7 @@
 import { useState, memo } from 'react';
 import { motion } from 'framer-motion';
 import { sendContactMessage } from '../../services/api';
+import { MagneticButton } from '../MotionPrimitives';
 
 const socialLinks = [
   { name: 'GitHub', url: 'https://github.com/AgneeshNayak', icon: '🐙', color: '#e0e0e0' },
@@ -27,8 +28,8 @@ const ContactApp = memo(function ContactApp() {
   };
 
   return (
-    <div className="p-6 h-full overflow-y-auto">
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
+    <div className="p-4 sm:p-6 h-full overflow-y-auto">
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-4 sm:mb-6">
         <h2 className="font-display text-xl text-neon-green tracking-wider mb-1">// CONTACT</h2>
         <p className="text-xs font-mono text-gray-500">Establish communication link</p>
       </motion.div>
@@ -61,6 +62,8 @@ const ContactApp = memo(function ContactApp() {
 
       {/* Contact Form */}
       <motion.form
+        action="https://formspree.io/f/meajlykg"
+        method="POST"
         onSubmit={handleSubmit}
         className="space-y-4"
         initial={{ opacity: 0, y: 20 }}
@@ -71,6 +74,7 @@ const ContactApp = memo(function ContactApp() {
           <label className="block text-xs font-display text-neon-blue tracking-wider mb-2">IDENTIFIER</label>
           <input
             type="text"
+            name="name"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             required
@@ -82,6 +86,7 @@ const ContactApp = memo(function ContactApp() {
           <label className="block text-xs font-display text-neon-blue tracking-wider mb-2">COMM CHANNEL</label>
           <input
             type="email"
+            name="email"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             required
@@ -92,6 +97,7 @@ const ContactApp = memo(function ContactApp() {
         <div>
           <label className="block text-xs font-display text-neon-blue tracking-wider mb-2">TRANSMISSION</label>
           <textarea
+            name="message"
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
             required
@@ -100,15 +106,17 @@ const ContactApp = memo(function ContactApp() {
             placeholder="Your message..."
           />
         </div>
-        <motion.button
-          type="submit"
-          disabled={status === 'sending'}
-          className="w-full py-3 px-6 bg-neon-green/10 border border-neon-green/50 text-neon-green font-display tracking-wider rounded-lg hover:bg-neon-green/20 transition-all disabled:opacity-50"
-          whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(0,255,65,0.2)' }}
-          whileTap={{ scale: 0.98 }}
-        >
-          {status === 'sending' ? 'TRANSMITTING...' : status === 'success' ? '✓ TRANSMITTED' : status === 'error' ? '❌ FAILED' : 'SEND TRANSMISSION'}
-        </motion.button>
+        <MagneticButton className="w-full">
+          <motion.button
+            type="submit"
+            disabled={status === 'sending'}
+            className="w-full py-3 px-6 bg-neon-green/10 border border-neon-green/50 text-neon-green font-display tracking-wider rounded-lg hover:bg-neon-green/20 transition-all disabled:opacity-50 cursor-pointer"
+            whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(0,255,65,0.2)' }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {status === 'sending' ? 'TRANSMITTING...' : status === 'success' ? '✓ TRANSMITTED' : status === 'error' ? '❌ FAILED' : 'SEND TRANSMISSION'}
+          </motion.button>
+        </MagneticButton>
       </motion.form>
 
       {/* Status message */}

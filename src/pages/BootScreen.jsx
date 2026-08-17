@@ -39,10 +39,11 @@ export default function BootScreen() {
     <AnimatePresence mode="wait">
       <motion.div
         key="boot-screen"
-        className="fixed inset-0 bg-dark-bg flex flex-col overflow-hidden"
+        onClick={handleSkip}
+        className="fixed inset-0 bg-dark-bg flex flex-col overflow-hidden cursor-pointer select-none"
         initial={{ opacity: 1 }}
         exit={{ opacity: 0, scale: 1.02, filter: 'brightness(2)' }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
       >
         {/* CRT Scanline Overlay */}
         <div className="crt-overlay" />
@@ -151,12 +152,12 @@ export default function BootScreen() {
           </div>
 
           {/* Stage indicators */}
-          <div className="flex items-center justify-between mt-3">
-            <div className="flex gap-1">
+          <div className="flex items-center justify-between gap-2 mt-3">
+            <div className="flex flex-wrap gap-1">
               {['POST', 'AI', 'SVC', 'NET', 'RDY'].map((label, i) => (
                 <div
                   key={label}
-                  className={`px-2 py-0.5 text-[10px] font-display tracking-wider border rounded ${
+                  className={`px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-display tracking-wider border rounded ${
                     i <= (currentStage ? currentStage.id === 'bios' ? 0 : currentStage.id === 'ai-core' ? 1 : currentStage.id === 'services' ? 2 : currentStage.id === 'network' ? 3 : 4 : 0)
                       ? 'border-neon-green/50 text-neon-green bg-neon-green/10'
                       : 'border-dark-border text-gray-600'
@@ -170,18 +171,18 @@ export default function BootScreen() {
             {/* Skip button */}
             <motion.button
               onClick={handleSkip}
-              className="flex items-center gap-2 px-3 py-1 text-xs text-gray-500 hover:text-neon-green border border-dark-border hover:border-neon-green/30 rounded transition-all duration-300 font-mono"
+              className="flex items-center gap-1.5 px-2.5 py-1 text-xs text-gray-500 hover:text-neon-green border border-dark-border hover:border-neon-green/30 rounded transition-all duration-300 font-mono shrink-0 cursor-pointer"
               whileHover={{ scale: 1.05, boxShadow: '0 0 10px rgba(0,255,65,0.2)' }}
               whileTap={{ scale: 0.95 }}
             >
               <span>SKIP</span>
-              <span className="text-[10px] opacity-50">[SPACE]</span>
+              <span className="text-[10px] opacity-50 hidden sm:inline">[SPACE]</span>
             </motion.button>
           </div>
         </motion.div>
 
         {/* Corner decorations */}
-        <div className="absolute top-2 right-2 flex flex-col items-end gap-1 text-[10px] font-mono text-neon-green/20">
+        <div className="hidden sm:flex absolute top-2 right-2 flex-col items-end gap-1 text-[10px] font-mono text-neon-green/20">
           <span>SYS: {new Date().toLocaleTimeString()}</span>
           <span>MEM: 32768MB</span>
           <span>CPU: 8-CORE NEURAL</span>

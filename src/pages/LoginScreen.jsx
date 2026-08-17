@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Particles, { ParticlesProvider } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
+import { MagneticButton, RevealText } from '../components/MotionPrimitives';
 
 // Fingerprint SVG paths for decorative animation
 // NOTE: This is purely decorative - NO real biometric capture occurs
@@ -172,7 +173,7 @@ export default function LoginScreen() {
 
         {/* Left status panel */}
         <motion.div
-          className="absolute left-4 top-1/2 -translate-y-1/2 space-y-3 hidden sm:block"
+          className="absolute left-4 top-1/2 -translate-y-1/2 space-y-3 hidden xl:block z-10"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
@@ -189,7 +190,7 @@ export default function LoginScreen() {
 
         {/* Right status panel */}
         <motion.div
-          className="absolute right-4 top-1/2 -translate-y-1/2 space-y-3 hidden sm:block"
+          className="absolute right-4 top-1/2 -translate-y-1/2 space-y-3 hidden xl:block z-10"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
@@ -205,9 +206,9 @@ export default function LoginScreen() {
         </motion.div>
 
         {/* Main login panel */}
-        <div className="absolute inset-0 flex items-center justify-center px-4">
+        <div className="absolute inset-0 flex items-center justify-center px-3 sm:px-4 z-20">
           <motion.div
-            className="glass-strong rounded-2xl p-8 sm:p-10 w-full max-w-md relative"
+            className="glass-strong rounded-2xl p-5 sm:p-8 md:p-10 w-[calc(100vw-24px)] max-w-md relative my-auto max-h-[90vh] overflow-y-auto"
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -234,7 +235,7 @@ export default function LoginScreen() {
                 <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse-neon" />
               </div>
               <h1 className="font-display text-3xl sm:text-4xl text-neon-green text-glow-green tracking-wider mb-2">
-                AGNEESH-OS
+                <RevealText text="AGNEESH-OS" speed={0.06} />
               </h1>
               <div className="h-px w-3/4 mx-auto bg-gradient-to-r from-transparent via-neon-green/30 to-transparent mb-3" />
               <p className="text-gray-400 font-mono text-xs tracking-[0.3em] uppercase">
@@ -256,22 +257,24 @@ export default function LoginScreen() {
             </motion.div>
 
             {/* Enter as Guest - primary action */}
-            <motion.button
-              onClick={handleEnter}
-              className="w-full py-3.5 px-6 bg-neon-green/10 border border-neon-green/50 text-neon-green font-display text-lg tracking-[0.2em] rounded-xl hover:bg-neon-green/20 hover:border-neon-green/70 transition-all duration-300 mb-4 relative overflow-hidden group"
-              whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(0,255,65,0.3)' }}
-              whileTap={{ scale: 0.98 }}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-            >
-              <span className="relative z-10">ENTER AS GUEST</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-neon-green/0 via-neon-green/10 to-neon-green/0"
-                animate={{ x: ['-100%', '100%'] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-              />
-            </motion.button>
+            <MagneticButton className="w-full mb-4">
+              <motion.button
+                onClick={handleEnter}
+                className="w-full py-3.5 px-6 bg-neon-green/10 border border-neon-green/50 text-neon-green font-display text-lg tracking-[0.2em] rounded-xl hover:bg-neon-green/20 hover:border-neon-green/70 transition-all duration-300 relative overflow-hidden group"
+                whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(0,255,65,0.3)' }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+              >
+                <span className="relative z-10">ENTER AS GUEST</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-neon-green/0 via-neon-green/10 to-neon-green/0"
+                  animate={{ x: ['-100%', '100%'] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                />
+              </motion.button>
+            </MagneticButton>
 
             {/* Agent Login toggle */}
             <motion.div

@@ -251,10 +251,10 @@ export default function AICommandCenter() {
 
   return (
     <div 
-      className="fixed z-[9999]"
+      className="fixed z-[9800]"
       style={{
-        bottom: '96px', // Start above the clock taskbar
-        right: '24px',
+        bottom: '60px',
+        right: '16px',
         transform: `translate(${position.x}px, ${position.y}px)`,
         transition: isDragging ? 'none' : 'transform 0.15s ease-out'
       }}
@@ -263,11 +263,7 @@ export default function AICommandCenter() {
         {isOpen ? (
           // Chat Panel Layout
           <motion.div
-            className="w-80 h-96 glass-strong rounded-2xl flex flex-col overflow-hidden relative border"
-            style={{
-              borderColor: `${accentColor}30`,
-              boxShadow: `0 0 30px ${accentColor}15, 0 10px 40px rgba(0,0,0,0.5)`
-            }}
+            className="w-[calc(100vw-32px)] max-w-xs sm:w-80 h-[350px] sm:h-96 max-h-[calc(100vh-120px)] bg-gray-950/95 backdrop-blur-2xl rounded-2xl flex flex-col overflow-hidden relative shrink-0 border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.7)]"
             initial={{ opacity: 0, scale: 0.9, y: 50, x: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 50, x: 20 }}
@@ -277,7 +273,7 @@ export default function AICommandCenter() {
             <div 
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
-              className="flex items-center justify-between p-3 border-b border-dark-border bg-black/40 cursor-grab active:cursor-grabbing select-none"
+              className="flex items-center justify-between p-3 border-b border-white/10 bg-black/50 cursor-grab active:cursor-grabbing select-none shrink-0"
             >
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2 w-2">
@@ -288,21 +284,21 @@ export default function AICommandCenter() {
               </div>
               <button 
                 onClick={() => setIsOpen(false)}
-                className="text-gray-500 hover:text-white transition-colors font-mono text-xs cursor-pointer"
+                className="text-gray-500 hover:text-white transition-colors font-mono text-xs cursor-pointer p-1"
               >
                 [×]
               </button>
             </div>
 
             {/* Chat Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 min-h-0">
               {messages.map((msg, i) => (
                 <div key={i} className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}>
                   <div 
                     className={`max-w-[85%] rounded-xl px-3 py-2 text-xs font-mono leading-normal`}
                     style={{
                       background: msg.sender === 'user' ? `${accentColor}15` : 'rgba(255,255,255,0.03)',
-                      border: msg.sender === 'user' ? `1px solid ${accentColor}30` : '1px solid rgba(255,255,255,0.05)',
+                      border: msg.sender === 'user' ? `1px solid ${accentColor}30` : '1px solid rgba(255,255,255,0.06)',
                       color: msg.sender === 'user' ? 'white' : '#ccc'
                     }}
                   >
@@ -324,17 +320,17 @@ export default function AICommandCenter() {
             </div>
 
             {/* Input Form */}
-            <form onSubmit={handleSend} className="p-2 border-t border-dark-border flex bg-black/10">
+            <form onSubmit={handleSend} className="p-2 border-t border-white/10 flex items-center bg-black/60 shrink-0">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask me a question..."
-                className="flex-1 bg-transparent px-3 py-2 outline-none border-none font-mono text-xs text-white placeholder:text-gray-600"
+                className="flex-1 bg-transparent px-2.5 py-1.5 outline-none border-none font-mono text-xs text-white placeholder:text-gray-600"
               />
               <button 
                 type="submit" 
-                className="px-3 py-2 rounded-lg text-[10px] font-mono hover:bg-white/[0.03] transition-colors"
+                className="px-3 py-1.5 rounded-lg text-[10px] font-mono font-bold hover:bg-white/[0.05] transition-colors cursor-pointer shrink-0"
                 style={{ color: accentColor }}
               >
                 SEND

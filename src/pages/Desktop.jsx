@@ -6,7 +6,7 @@ import DesktopIcons from '../components/DesktopIcons';
 import Taskbar from '../components/Taskbar';
 import AppRenderer from '../components/AppRenderer';
 import ErrorBoundary from '../components/ErrorBoundary';
-import ThreeBackground from '../components/ThreeBackground';
+import WallpaperManager from '../components/WallpaperManager';
 import CommandPalette from '../components/CommandPalette';
 import AICommandCenter from '../components/AICommandCenter';
 import RecruiterDashboard from '../components/RecruiterDashboard';
@@ -23,7 +23,7 @@ function DesktopContent() {
       <DeveloperMode />
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <ThreeBackground />
+        <WallpaperManager />
 
         {/* Vignette */}
         <div className="absolute inset-0" style={{

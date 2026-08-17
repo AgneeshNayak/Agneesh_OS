@@ -1,6 +1,7 @@
 import { useState, useEffect, memo } from 'react';
 import { motion } from 'framer-motion';
 import { fetchProjects } from '../../services/api';
+import { ProjectSkeleton } from '../SkeletonLoader';
 
 const ProjectCard = memo(function ProjectCard({ project }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -115,11 +116,11 @@ const ProjectsApp = memo(function ProjectsApp() {
   }, []);
 
   return (
-    <div className="p-6 h-full overflow-y-auto">
+    <div className="p-4 sm:p-6 h-full overflow-y-auto">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-6 flex justify-between items-end"
+        className="mb-4 sm:mb-6 flex justify-between items-end"
       >
         <div>
           <h2 className="font-display text-xl text-neon-green tracking-wider mb-1">// PROJECTS</h2>
@@ -133,24 +134,31 @@ const ProjectsApp = memo(function ProjectsApp() {
       </motion.div>
 
       {loading ? (
-        <div className="flex items-center justify-center h-48">
-          <div className="text-center">
-            <div className="w-8 h-8 border-2 border-neon-green/30 border-t-neon-green rounded-full animate-spin mx-auto mb-3" />
-            <p className="text-xs font-mono text-gray-500">Querying database...</p>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <ProjectSkeleton />
+          <ProjectSkeleton />
+          <ProjectSkeleton />
+          <ProjectSkeleton />
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {projectList.map((project, i) => (
-            <motion.div
-              key={project.id || project._id || i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-            >
-              <ProjectCard project={project} />
-            </motion.div>
-          ))}
+          {projectList.length === 0 ? (
+            <div className="col-span-2 text-center py-12 border border-dark-border border-dashed rounded-xl glass bg-black/25">
+              <span className="text-3xl block mb-2">📂</span>
+              <p className="text-xs font-mono text-gray-500">No project database entries matched query parameters.</p>
+            </div>
+          ) : (
+            projectList.map((project, i) => (
+              <motion.div
+                key={project.id || project._id || i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))
+          )}
         </div>
       )}
     </div>

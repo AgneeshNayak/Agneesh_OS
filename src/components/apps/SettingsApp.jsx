@@ -63,6 +63,25 @@ const SettingsApp = () => {
         />
       </div>
 
+      <div className="mb-8">
+        <h3 className="text-lg font-semibold mb-4 text-green-400">Desktop Wallpaper</h3>
+        <div className="flex gap-3 flex-wrap">
+          {[
+            { id: 'satellite', name: 'Orbiting Earth' },
+            { id: 'matrix', name: 'Digital Rain' },
+            { id: 'gradient', name: 'Soft Blob' },
+          ].map(wp => (
+            <button
+              key={wp.id}
+              onClick={() => updateSetting('wallpaper', wp.id)}
+              className={`px-3 py-2 rounded font-mono text-xs border cursor-pointer transition-all ${settings.wallpaper === wp.id ? 'bg-green-500/15 text-green-400 border-green-500/40 shadow-[0_0_8px_rgba(0,255,65,0.1)]' : 'bg-black/30 border-dark-border text-gray-400 hover:border-gray-600 hover:text-white'}`}
+            >
+              {wp.name}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="space-y-2 mb-8">
         <h3 className="text-lg font-semibold mb-4 text-green-400">Visuals & Audio</h3>
         <Toggle

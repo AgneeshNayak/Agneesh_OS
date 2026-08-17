@@ -228,7 +228,36 @@ const SnakeGame = ({ onScoreChange }) => {
           );
         })}
       </div>
-      <span className="text-[9px] text-gray-500 mt-3 uppercase tracking-widest">Controls: Arrow keys / WASD</span>
+      {/* Mobile D-Pad Controls */}
+      <div className="flex flex-col items-center gap-1 mt-3">
+        <button
+          onClick={() => { if (directionRef.current.y !== 1) setDirection({ x: 0, y: -1 }); }}
+          className="w-10 h-8 bg-gray-900 border border-gray-700 rounded text-xs text-white hover:bg-gray-800 active:bg-green-600 cursor-pointer flex items-center justify-center"
+        >
+          ▲
+        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={() => { if (directionRef.current.x !== 1) setDirection({ x: -1, y: 0 }); }}
+            className="w-10 h-8 bg-gray-900 border border-gray-700 rounded text-xs text-white hover:bg-gray-800 active:bg-green-600 cursor-pointer flex items-center justify-center"
+          >
+            ◀
+          </button>
+          <button
+            onClick={() => { if (directionRef.current.x !== -1) setDirection({ x: 1, y: 0 }); }}
+            className="w-10 h-8 bg-gray-900 border border-gray-700 rounded text-xs text-white hover:bg-gray-800 active:bg-green-600 cursor-pointer flex items-center justify-center"
+          >
+            ▶
+          </button>
+        </div>
+        <button
+          onClick={() => { if (directionRef.current.y !== -1) setDirection({ x: 0, y: 1 }); }}
+          className="w-10 h-8 bg-gray-900 border border-gray-700 rounded text-xs text-white hover:bg-gray-800 active:bg-green-600 cursor-pointer flex items-center justify-center"
+        >
+          ▼
+        </button>
+      </div>
+      <span className="text-[9px] text-gray-500 mt-2 uppercase tracking-widest">Controls: Touch D-Pad / Arrows / WASD</span>
     </div>
   );
 };
@@ -415,7 +444,36 @@ const Game2048 = ({ onScoreChange }) => {
           </div>
         ))}
       </div>
-      <span className="text-[9px] text-gray-500 mt-3 uppercase tracking-widest">Controls: Arrow keys / WASD</span>
+      {/* Mobile D-Pad Controls */}
+      <div className="flex flex-col items-center gap-1 mt-3">
+        <button
+          onClick={() => handleMove('UP')}
+          className="w-10 h-8 bg-gray-900 border border-gray-700 rounded text-xs text-white hover:bg-gray-800 active:bg-cyan-600 cursor-pointer flex items-center justify-center"
+        >
+          ▲
+        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={() => handleMove('LEFT')}
+            className="w-10 h-8 bg-gray-900 border border-gray-700 rounded text-xs text-white hover:bg-gray-800 active:bg-cyan-600 cursor-pointer flex items-center justify-center"
+          >
+            ◀
+          </button>
+          <button
+            onClick={() => handleMove('RIGHT')}
+            className="w-10 h-8 bg-gray-900 border border-gray-700 rounded text-xs text-white hover:bg-gray-800 active:bg-cyan-600 cursor-pointer flex items-center justify-center"
+          >
+            ▶
+          </button>
+        </div>
+        <button
+          onClick={() => handleMove('DOWN')}
+          className="w-10 h-8 bg-gray-900 border border-gray-700 rounded text-xs text-white hover:bg-gray-800 active:bg-cyan-600 cursor-pointer flex items-center justify-center"
+        >
+          ▼
+        </button>
+      </div>
+      <span className="text-[9px] text-gray-500 mt-2 uppercase tracking-widest">Controls: Touch D-Pad / Arrows / WASD</span>
     </div>
   );
 };
@@ -570,25 +628,25 @@ const GamesApp = memo(() => {
   };
 
   return (
-    <div className="flex h-full bg-gray-950 text-white">
-      {/* Sidebar Game Selector */}
-      <div className="w-24 border-r border-dark-border bg-black/40 flex flex-col p-1.5 gap-1.5 shrink-0">
-        <span className="text-[8px] font-mono text-gray-600 uppercase font-bold text-center">// GAMES</span>
+    <div className="flex flex-col sm:flex-row h-full bg-gray-950 text-white overflow-hidden">
+      {/* Sidebar / Top Tab Game Selector */}
+      <div className="w-full sm:w-24 border-b sm:border-b-0 sm:border-r border-white/10 bg-black/40 flex flex-row sm:flex-col p-1.5 gap-1.5 shrink-0 overflow-x-auto">
+        <span className="hidden sm:block text-[8px] font-mono text-gray-600 uppercase font-bold text-center">// GAMES</span>
         <button
           onClick={() => { setActiveGame('snake'); setScore(0); }}
-          className={`px-2 py-3 rounded text-[10px] uppercase font-bold transition-all text-center cursor-pointer ${activeGame === 'snake' ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'text-gray-500 hover:text-white border border-transparent'}`}
+          className={`flex-1 sm:flex-none px-2 py-2 sm:py-3 rounded text-[10px] uppercase font-bold transition-all text-center cursor-pointer whitespace-nowrap ${activeGame === 'snake' ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'text-gray-500 hover:text-white border border-transparent'}`}
         >
           🐍 SNAKE
         </button>
         <button
           onClick={() => { setActiveGame('2048'); setScore(0); }}
-          className={`px-2 py-3 rounded text-[10px] uppercase font-bold transition-all text-center cursor-pointer ${activeGame === '2048' ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30' : 'text-gray-500 hover:text-white border border-transparent'}`}
+          className={`flex-1 sm:flex-none px-2 py-2 sm:py-3 rounded text-[10px] uppercase font-bold transition-all text-center cursor-pointer whitespace-nowrap ${activeGame === '2048' ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30' : 'text-gray-500 hover:text-white border border-transparent'}`}
         >
           🎮 2048
         </button>
         <button
           onClick={() => { setActiveGame('typing'); setScore(0); }}
-          className={`px-2 py-3 rounded text-[10px] uppercase font-bold transition-all text-center cursor-pointer ${activeGame === 'typing' ? 'bg-pink-500/10 text-pink-400 border border-pink-500/30' : 'text-gray-500 hover:text-white border border-transparent'}`}
+          className={`flex-1 sm:flex-none px-2 py-2 sm:py-3 rounded text-[10px] uppercase font-bold transition-all text-center cursor-pointer whitespace-nowrap ${activeGame === 'typing' ? 'bg-pink-500/10 text-pink-400 border border-pink-500/30' : 'text-gray-500 hover:text-white border border-transparent'}`}
         >
           ⌨️ TYPING
         </button>
