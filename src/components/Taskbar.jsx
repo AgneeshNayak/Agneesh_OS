@@ -129,7 +129,7 @@ const Taskbar = memo(function Taskbar() {
                   🐙 GitHub
                 </a>
                 <a
-                  href="https://linkedin.com/in/AgneeshNayak"
+                  href="https://www.linkedin.com/in/agneesh-nayak/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="py-1.5 px-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-[10px] font-mono text-center text-gray-300 hover:text-white transition-colors"

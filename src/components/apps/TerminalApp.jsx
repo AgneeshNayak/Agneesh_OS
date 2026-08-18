@@ -36,13 +36,13 @@ const executeCommand = (cmd, args, history) => {
     case 'projects':
       return { output: ['Projects:', '- AgneeshOS: AI OS themed portfolio', '- Cyberpunk Chat', '- React Web App'], color: 'text-cyan-400' };
     case 'contact':
-      return { output: ['Email: agneeshnayak88@gmail.com', 'GitHub: https://github.com/AgneeshNayak', 'LinkedIn: https://linkedin.com/in/AgneeshNayak', 'LeetCode: https://leetcode.com/u/Agneesh_A_Nayak/'], color: 'text-purple-400' };
+      return { output: ['Email: agneeshnayak88@gmail.com', 'GitHub: https://github.com/AgneeshNayak', 'LinkedIn: https://www.linkedin.com/in/agneesh-nayak/', 'LeetCode: https://leetcode.com/u/Agneesh_A_Nayak/'], color: 'text-purple-400' };
     case 'github':
       window.open('https://github.com/AgneeshNayak', '_blank');
       return { output: ['Opening GitHub profile: https://github.com/AgneeshNayak'], color: 'text-white' };
     case 'linkedin':
-      window.open('https://linkedin.com/in/AgneeshNayak', '_blank');
-      return { output: ['Opening LinkedIn profile: https://linkedin.com/in/AgneeshNayak'], color: 'text-white' };
+      window.open('https://www.linkedin.com/in/agneesh-nayak/', '_blank');
+      return { output: ['Opening LinkedIn profile: https://www.linkedin.com/in/agneesh-nayak/'], color: 'text-white' };
     case 'leetcode':
       window.open('https://leetcode.com/u/Agneesh_A_Nayak/', '_blank');
       return { output: ['Opening LeetCode profile: https://leetcode.com/u/Agneesh_A_Nayak/'], color: 'text-white' };

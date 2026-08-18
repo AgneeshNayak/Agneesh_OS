@@ -5,7 +5,7 @@ import { MagneticButton } from '../MotionPrimitives';
 
 const socialLinks = [
   { name: 'GitHub', url: 'https://github.com/AgneeshNayak', icon: '🐙', color: '#e0e0e0' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/AgneeshNayak', icon: '🔗', color: '#0077b5' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/agneesh-nayak/', icon: '🔗', color: '#0077b5' },
   { name: 'LeetCode', url: 'https://leetcode.com/u/Agneesh_A_Nayak/', icon: '📝', color: '#ffa116' },
   { name: 'Email', url: 'mailto:agneeshnayak88@gmail.com', icon: '📧', color: '#00ff41' },
 ];

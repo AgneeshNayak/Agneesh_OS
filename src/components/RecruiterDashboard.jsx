@@ -107,7 +107,7 @@ export default function RecruiterDashboard() {
                 </div>
                 <div className="text-left md:text-right font-mono text-xs space-y-1 text-gray-600">
                   <p>Email: <a href="mailto:agneeshnayak88@gmail.com" className="underline">agneeshnayak88@gmail.com</a></p>
-                  <p>LinkedIn: <a href="https://linkedin.com/in/AgneeshNayak" target="_blank" rel="noopener noreferrer" className="underline">linkedin.com/in/AgneeshNayak</a></p>
+                  <p>LinkedIn: <a href="https://www.linkedin.com/in/agneesh-nayak/" target="_blank" rel="noopener noreferrer" className="underline">linkedin.com/in/agneesh-nayak</a></p>
                   <p>GitHub: <a href="https://github.com/AgneeshNayak" target="_blank" rel="noopener noreferrer" className="underline">github.com/AgneeshNayak</a></p>
                   <p>LeetCode: <a href="https://leetcode.com/u/Agneesh_A_Nayak/" target="_blank" rel="noopener noreferrer" className="underline">leetcode.com/u/Agneesh_A_Nayak</a></p>
                 </div>

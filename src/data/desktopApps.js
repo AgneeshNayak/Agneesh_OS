@@ -15,7 +15,7 @@ export const DESKTOP_APPS = [
   { id: 'ai-assistant', label: 'AI Assistant', icon: '🤖', color: '#00ff41' },
   { id: 'games', label: 'Games', icon: '🎮', color: '#ff0080' },
   { id: 'github', label: 'GitHub', icon: '🐙', color: '#e0e0e0', external: 'https://github.com/AgneeshNayak' },
-  { id: 'linkedin', label: 'LinkedIn', icon: '🔗', color: '#0077b5', external: 'https://linkedin.com/in/AgneeshNayak' },
+  { id: 'linkedin', label: 'LinkedIn', icon: '🔗', color: '#0077b5', external: 'https://www.linkedin.com/in/agneesh-nayak/' },
   { id: 'leetcode', label: 'LeetCode', icon: '📝', color: '#ffa116', external: 'https://leetcode.com/u/Agneesh_A_Nayak/' },
   { id: 'recycle-bin', label: 'Recycle Bin', icon: '🗑️', color: '#666' },
 ];

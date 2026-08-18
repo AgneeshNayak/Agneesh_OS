@@ -33,7 +33,7 @@ const commands = [
 
   // LINKS
   { id: 'link-github', title: 'Open GitHub Repository', category: 'External Links', icon: '🐙', action: 'link', url: 'https://github.com/AgneeshNayak' },
-  { id: 'link-linkedin', title: 'Open LinkedIn Profile', category: 'External Links', icon: '🔗', action: 'link', url: 'https://linkedin.com/in/AgneeshNayak' },
+  { id: 'link-linkedin', title: 'Open LinkedIn Profile', category: 'External Links', icon: '🔗', action: 'link', url: 'https://www.linkedin.com/in/agneesh-nayak/' },
   { id: 'link-leetcode', title: 'Open LeetCode Profile', category: 'External Links', icon: '📝', action: 'link', url: 'https://leetcode.com/u/Agneesh_A_Nayak/' },
 ];
 
